@@ -47,8 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
+        
         title: Text(
           widget.title,
         ),
@@ -64,11 +63,14 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(
               height: 60,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                    fontSize: 240,
-                  ),
+            Card(
+              child: Text(
+                '$_counter',
+                style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                      fontSize: 200,
+                    ),
+              ),
+              
             ),
             const SizedBox(
               height: 20,
