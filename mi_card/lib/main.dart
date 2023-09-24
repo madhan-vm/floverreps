@@ -37,7 +37,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _randomNumGenerator() {
     setState(() {
       _counter = Random().nextInt(1000);
     });
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _randomNumGenerator,
         tooltip: 'Press Here to generate',
         child: const Icon(Icons.add),
       ), 
