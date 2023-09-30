@@ -1,11 +1,13 @@
 import 'dart:ui';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 final _borderRadius = BorderRadius.circular(20);
 
 class GlassBox extends StatelessWidget {
-  final width;
+  final double width;
   final double height;
 
   const GlassBox({
@@ -47,23 +49,44 @@ class GlassBox extends StatelessWidget {
                     )),
               ),
               Container(
-                child: const Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    ' Welcome!',
-                    style: TextStyle(
-                        fontSize: 60,
-                        color: Color.fromARGB(224, 255, 255, 255),
-                        fontWeight: FontWeight.w600),
-                  ),
-                  Text('    Generate images as you wish and bring\n    life to your imagination.',style: TextStyle(
-                          fontSize: 20,
-                          color: Color.fromARGB(216, 255, 255, 255),
-                          fontWeight: FontWeight.w500),)
-                ],
-              ),
+                  children: [
+                    SizedBox(
+                      height: 80,
+                      child: AnimatedTextKit(
+                        animatedTexts: [
+                          ColorizeAnimatedText(
+                            ' Welcome',
+                            textStyle: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                fontSize: 50,
+                                color: Color.fromARGB(216, 255, 255, 255),
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            colors: colorizeColors,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 100,
+                      child:
+                          AnimatedTextKit(totalRepeatCount: 1, animatedTexts: [
+                        TypewriterAnimatedText(
+                            '    Generate images as you wish and bring\n    life to your imagination.',
+                            textStyle: GoogleFonts.poppins(
+                              textStyle: const TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromARGB(216, 255, 255, 255),
+                                  fontWeight: FontWeight.w500),
+                            ))
+                      ]),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -72,3 +95,12 @@ class GlassBox extends StatelessWidget {
     );
   }
 }
+
+const colorizeColors = [
+  Colors.white,
+  Color.fromARGB(255, 213, 143, 225),
+  Color.fromARGB(255, 139, 190, 232),
+  Color.fromARGB(255, 238, 227, 127),
+  Color.fromARGB(255, 229, 142, 135),
+  Colors.white,
+];
