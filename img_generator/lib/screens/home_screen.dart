@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:img_generator/screens/main_screen.dart';
 import 'package:img_generator/widgets/glass_box.dart';
+import 'package:img_generator/widgets/glass_button.dart';
+
+final textcontroller = TextEditingController();
+String UserName = '';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,26 +12,56 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/img/pxfuel.jpg'),
-            fit: BoxFit.cover,
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/img/pxfuel.jpg'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                  child: GlassBox(
+                width: MediaQuery.of(context).size.width,
+                height: 240,
+              )),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  controller: textcontroller,
+                  decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.cancel_outlined),
+                      onPressed: () {
+                        textcontroller.clear();
+                      },
+                    ),
+                    hintText: 'You gotta name? Say to me',
+                    hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(17),
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
-        child: Center(
-            child: GlassBox(
-          width: MediaQuery.of(context).size.width,
-          height: 240,
-        )),
-      ),
-      floatingActionButton: ElevatedButton(
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => MainScreen(),
-            ));
-          },
-          child: const Text('Get Started')),
-    );
+        floatingActionButton: InkWell(
+            onTap: () {
+              UserName = textcontroller.text;
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MainScreen(),
+                  ));
+            },
+            child: GlassButton(
+              height: 50,
+              width: 120,
+              text: 'Get Started',
+            )));
   }
 }

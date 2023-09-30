@@ -37,12 +37,12 @@ class GlassBox extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white.withOpacity(0.2)),
+                    border: Border.all(color: Colors.white.withOpacity(0.3)),
                     borderRadius: _borderRadius,
                     gradient: LinearGradient(
                       colors: [
-                        Colors.white.withOpacity(0.1),
                         Colors.grey.withOpacity(0.1),
+                        Colors.white.withOpacity(0.2),
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
@@ -56,6 +56,7 @@ class GlassBox extends StatelessWidget {
                     SizedBox(
                       height: 80,
                       child: AnimatedTextKit(
+                        repeatForever: true,
                         animatedTexts: [
                           ColorizeAnimatedText(
                             ' Welcome',
