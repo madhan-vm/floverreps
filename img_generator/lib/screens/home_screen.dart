@@ -4,7 +4,7 @@ import 'package:img_generator/widgets/glass_box.dart';
 import 'package:img_generator/widgets/glass_button.dart';
 
 final textcontroller = TextEditingController();
-String UserName = '';
+String userName = '';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -31,6 +31,7 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: textcontroller,
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
                       icon: Icon(Icons.cancel_outlined),
@@ -51,7 +52,7 @@ class HomeScreen extends StatelessWidget {
         ),
         floatingActionButton: InkWell(
             onTap: () {
-              UserName = textcontroller.text;
+              userName = textcontroller.text;
               Navigator.push(
                   context,
                   MaterialPageRoute(
