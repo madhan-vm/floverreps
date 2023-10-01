@@ -33,18 +33,17 @@ class _MainScreenState extends State<MainScreen> {
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('assets/img/pxfuel.jpg'),
                 fit: BoxFit.cover,
-                
               ),
             ),
           ),
         )
       ]),
       floatingActionButton:
-          GlassButton(height: 50, width: 120, text: 'Generate'),
+          const GlassButton(height: 50, width: 120, text: 'Generate'),
     );
   }
 }

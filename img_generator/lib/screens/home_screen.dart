@@ -31,10 +31,10 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
                   controller: textcontroller,
-                  style: TextStyle(color: Colors.white),
+                  style:const  TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
-                      icon: Icon(Icons.cancel_outlined),
+                      icon:const  Icon(Icons.cancel_outlined),
                       onPressed: () {
                         textcontroller.clear();
                       },
@@ -56,10 +56,10 @@ class HomeScreen extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => MainScreen(),
+                    builder: (context) => const MainScreen(),
                   ));
             },
-            child: GlassButton(
+            child: const GlassButton(
               height: 50,
               width: 120,
               text: 'Get Started',
